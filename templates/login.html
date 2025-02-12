@@ -1,0 +1,24 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-box">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="login-logo">
+        <h1>Login</h1>
+        <p>Please select your role:</p>
+        
+        <div class="role-box">
+            <h2>Customer Login</h2>
+            <a href="{{ url_for('customer_login') }}" class="button">Login as Customer</a>
+        </div>
+        
+        <div class="role-box">
+            <h2>Admin Login</h2>
+            <a href="{{ url_for('admin_login') }}" class="button">Login as Admin</a>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}

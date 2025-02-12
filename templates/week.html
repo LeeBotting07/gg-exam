@@ -1,0 +1,23 @@
+{% extends "main.html" %}
+
+{% block content %}
+<h1>This week's weather</h1>
+
+<div class="hourly-forecast">
+    <h2>7-Day Forecast</h2>
+    <div class="hourly-scroll">
+        {% if forecast %}
+            {% for day in forecast.forecastday %}
+            <div class="hourly-card">
+                <p><strong>{{ day.date }}</strong></p>
+                <p>Max Temp: {{ day.day.maxtemp_c }}°C</p>
+                <p>Min Temp: {{ day.day.mintemp_c }}°C</p>
+                <p>Condition: {{ day.day.condition.text }}</p>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>Weather data is not available at the moment.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

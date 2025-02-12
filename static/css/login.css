@@ -1,0 +1,103 @@
+.flash-message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.flash-message.error {
+    background-color: #ffebee; 
+    color: #c62828; /* Dark red text */
+}
+
+.flash-message.success {
+    background-color: #e8f5e9; 
+    color: #2e7d32; /* Dark green text */
+}
+
+/* Login Page Styles */
+body {
+    background-color: #f4f4f4; /* Light background for contrast */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+}
+
+.login-container {
+    flex: 1; /* Allow the container to grow and take up remaining space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Add padding to avoid content touching the edges */
+}
+
+.login-box {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+    width: 400px; /* Fixed width for the login box */
+}
+
+.login-logo {
+    max-width: 80%; /* Responsive logo size */
+    margin-bottom: 10px; /* Reduced space below the logo */
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #2c3e50; /* Darker navy blue color */
+}
+
+p {
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    color: #555; /* Dark gray text */
+}
+
+.role-box {
+    margin: 20px 0; /* Space between role boxes */
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding for comfort */
+    margin: 10px 0; /* Space between fields */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1em; /* Font size */
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+    border-color: #3498db; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    color: white;
+    background-color: #3498db; /* Subtle blue button */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .login-box {
+        width: 90%; /* Responsive width for smaller screens */
+    }
+}

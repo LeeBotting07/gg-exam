@@ -1,0 +1,24 @@
+{% extends "main.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="admin-panel-container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <h1>Welcome to the Admin Panel</h1>
+    <div class="admin-section">
+        <h2>User Management</h2>
+        <p>Here you can manage users, view statistics, and perform administrative tasks.</p>
+    </div>
+    <div class="admin-section">
+        <h2>Statistics</h2>
+        <p>View site statistics and user activity.</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "main.html" %}
+{% block content %}
+    <h1 class="text-center mb-4">Today's Weather</h1>
+    
+    <form method="post" action="/today" role="search" aria-label="Weather search" class="mb-4">
+        <div class="form-group">
+            <label for="country">Enter Country:</label>
+            <input type="text" id="country" name="country" required 
+                    placeholder="e.g., USA" pattern="[A-Za-z\s]+" 
+                    title="Please enter a valid country name"
+                    aria-required="true" class="form-control">
+            <button type="submit" id="Weather_submit" class="btn btn-primary mt-2">Get Weather</button>
+        </div>
+    </form>
+
+    {% if location or country %}
+        <h3 class="text-center">Weather for: {{ location if location else country }}</h3>
+    {% endif %}
+
+    <div class="today-weather">
+        <h2 class="text-center">Current Weather</h2>
+        {% if weather and weather.main %}
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Condition:</strong> {{ weather.weather[0].description }}</h5>
+                <p class="card-text"><strong>Temperature:</strong> {{ weather.main.temp }}°C</p>
+                <p class="card-text"><strong>Humidity:</strong> {{ weather.main.humidity }}%</p>
+                <p class="card-text"><strong>Wind Speed:</strong> {{ weather.wind.speed }} m/s</p>
+                <img src="https://openweathermap.org/img/wn/{{ weather.weather[0].icon }}@2x.png" alt="Weather Icon" class="img-fluid">
+            </div>
+        </div>
+        {% else %}
+        <div class="alert alert-warning text-center">Weather data is not available at the moment.</div>
+        {% endif %}
+    </div>
+
+    <div class="air-quality">
+        <h2 class="text-center">Air Quality</h2>
+        {% if air_quality and air_quality.list %}
+        <div class="card text-center">
+            <div class="card-body">
+                <p class="card-text"><strong>AQI:</strong> {{ air_quality.list[0].main.aqi }}</p>
+                <p class="card-text"><strong>Components:</strong></p>
+                <ul>
+                    <li>CO: {{ air_quality.list[0].components.co }} µg/m³</li>
+                    <li>NO: {{ air_quality.list[0].components.no }} µg/m³</li>
+                    <li>NO2: {{ air_quality.list[0].components.no2 }} µg/m³</li>
+                    <li>O3: {{ air_quality.list[0].components.o3 }} µg/m³</li>
+                    <li>SO2: {{ air_quality.list[0].components.so2 }} µg/m³</li>
+                    <li>PM2.5: {{ air_quality.list[0].components.pm2_5 }} µg/m³</li>
+                    <li>PM10: {{ air_quality.list[0].components.pm10 }} µg/m³</li>
+                    <li>NH3: {{ air_quality.list[0].components.nh3 }} µg/m³</li>
+                </ul>
+            </div>
+        </div>
+        {% else %}
+        <div class="alert alert-warning text-center">Air quality data is not available at the moment.</div>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "main.html" %}
+{% block title %}Home{% endblock %}
+{% block header %}
+<div class="hero">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo name" class="logo">
+    <h1>Stay Prepared for the Weather!</h1>
+    <p>Get the latest weather forecasts at your fingertips.</p>
+    <a href="{{ url_for('today') }}" class="hero-btn">Get Today's Weather</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="weather-overview">
+    <h2>Weather Overview</h2>
+    <div class="weather-cards">
+        <div class="weather-card">
+            <h3>Today's Weather</h3>
+            <p>Sunny, 25°C</p>
+            <p>Humidity: 60%</p>
+        </div>
+        <div class="weather-card">
+            <h3>This Week</h3>
+            <p>Rainy, 22°C</p>
+            <p>Humidity: 70%</p>
+        </div>
+        <div class="weather-card">
+            <h3>Upcoming Events</h3>
+            <p>Outdoor concert on Saturday!</p>
+            <p>Check the weather before heading out!</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
